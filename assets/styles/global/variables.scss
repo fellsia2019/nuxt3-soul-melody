@@ -1,0 +1,35 @@
+// fonts
+$main-font: "RobotoMono";
+$main-font-weight: 400;
+$main-font-size: 16px;
+$main-font-lh: 125%;
+
+// colors
+$color-secondary: #c5c5c5;
+$color-danger: #d20a11;
+$color-dark: #202124;
+$color-success: #46c123;
+$color-light: rgb(240, 235, 255);
+$color-primary: #5c24c4;
+$color-warning: #f0c15c;
+$color-warning-light: #fae9c4;
+
+// gradients
+$gradient-secondary: linear-gradient(
+  to right top,
+  #475366,
+  #4b5164,
+  #4e4f62,
+  #514e5f,
+  #534c5c
+);
+
+// breakpoints
+$breakpoint-desktop-lg: 1680px;
+$breakpoint-desktop-md: 1280px;
+$breakpoint-tablet-md: 1023px;
+$breakpoint-tablet-sm: 767px;
+$breakpoint-mob: 524px;
+
+// transitions
+$transition-mod: ease all 0.3s;

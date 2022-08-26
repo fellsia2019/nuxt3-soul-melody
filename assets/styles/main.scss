@@ -1,0 +1,23 @@
+@import "global/reset.scss";
+@import "global/fonts.scss";
+@import "helpers/fonts-styles.scss";
+
+body {
+  font-family: $main-font;
+  font-size: $main-font-size;
+  line-height: $main-font-lh;
+  font-weight: $main-font-weight;
+  color: $color-light;
+  background-color: $color-dark;
+  @include scroll-bar-off-custom($color-warning, transparent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
