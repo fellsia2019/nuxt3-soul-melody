@@ -5,9 +5,10 @@ $main-font-size: 16px;
 $main-font-lh: 125%;
 
 // colors
-$color-secondary: #c5c5c5;
+$color-secondary: #7f7e77;
 $color-danger: #d20a11;
 $color-dark: #202124;
+$color-coal: #343434;
 $color-success: #46c123;
 $color-light: rgb(240, 235, 255);
 $color-primary: #5c24c4;
@@ -23,6 +24,13 @@ $gradient-secondary: linear-gradient(
   #514e5f,
   #534c5c
 );
+$gradient-dark: linear-gradient(
+  90deg,
+  rgba(54, 54, 68, 1) 0%,
+  rgba(54, 54, 68, 1) 40%,
+  rgba(54, 54, 68, 1) 100%
+);
+$hsla-light: hsla(0, 0%, 100%, 0.8);
 
 // breakpoints
 $breakpoint-desktop-lg: 1680px;
@@ -33,3 +41,4 @@ $breakpoint-mob: 524px;
 
 // transitions
 $transition-mod: ease all 0.3s;
+$transition-mod-lazzy: linear all 0.5s;

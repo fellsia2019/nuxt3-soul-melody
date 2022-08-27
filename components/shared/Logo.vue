@@ -8,7 +8,10 @@
 
 <style lang="scss">
 .logo {
-  border: 2px solid $color-warning;
-  padding: 10px;
+  &__link {
+    border: 2px solid $color-warning;
+    padding: 10px;
+    display: block;
+  }
 }
 </style>
