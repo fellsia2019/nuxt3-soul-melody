@@ -5,7 +5,9 @@
       Immerse yourself in the harmony of classical string or keyboard acoustic
       music of all time
     </p>
-    <CustomButton>Go to catalog!</CustomButton>
+    <nuxt-link :to="{ name: 'catalog' }"
+      ><CustomButton>Go to catalog!</CustomButton></nuxt-link
+    >
   </section>
 </template>
 

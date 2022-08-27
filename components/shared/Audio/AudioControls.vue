@@ -46,7 +46,6 @@ const canGoToPrev = computed(() => {
 });
 
 const canGoToNext = computed(() => {
-  console.log(props.lastIndex, props.isActiveIndexMusic);
   return props.lastIndex && props.isActiveIndexMusic !== props.lastIndex;
 });
 

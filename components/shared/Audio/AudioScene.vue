@@ -3,6 +3,7 @@
     <AudioProgress
       class="audio-scene__audio-progress"
       :musicTimeData="musicTimeData"
+      @setProgress="setProgress"
     />
     <AudioControls
       :musicData="audioData"
@@ -33,6 +34,7 @@ interface IAudioSceneEmits {
   (e: "setPlayStatus", playing: boolean): void;
   (e: "goToPrevTrack"): void;
   (e: "goToNextTrack"): void;
+  (e: "setProgress", progress: number): void;
 }
 
 const props = defineProps<IAudioSceneProps>();
@@ -48,6 +50,10 @@ const goToPrevTrack = () => {
 
 const goToNextTrack = () => {
   emit("goToNextTrack");
+};
+
+const setProgress = (progress: number) => {
+  emit("setProgress", progress);
 };
 </script>
 

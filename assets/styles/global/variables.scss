@@ -14,6 +14,7 @@ $color-light: rgb(240, 235, 255);
 $color-primary: #5c24c4;
 $color-warning: #f0c15c;
 $color-warning-light: #fae9c4;
+$color-thunder-sky: rgb(143 145 168);
 
 // gradients
 $gradient-secondary: linear-gradient(
@@ -42,3 +43,4 @@ $breakpoint-mob: 524px;
 // transitions
 $transition-mod: ease all 0.3s;
 $transition-mod-lazzy: linear all 0.5s;
+$transition-mod-fast: linear all 0.1s;

@@ -7,6 +7,7 @@
       :musicList="musicStore.musicList"
       :playingStatus="playingStatus"
       :isActiveIdMusic="isActiveIdMusic"
+      :newProgress="newProgress"
       @setActiveMusicId="setActiveMusicId"
       @setPlayStatus="setPlayStatus"
       @goToNextTrack="goToNextTrack"
@@ -22,6 +23,7 @@
       @setPlayStatus="setPlayStatus"
       @goToPrevTrack="goToPrevTrack()"
       @goToNextTrack="goToNextTrack()"
+      @setProgress="setProgress"
     />
   </div>
 </template>
@@ -106,6 +108,12 @@ const goToNextTrack = () => {
     return;
   setActiveMusicId(musicStore.musicList[isActiveIndexMusic.value + 1].id);
   setPlayStatus(true);
+};
+
+const newProgress = ref<number | null>(null);
+
+const setProgress = (progress: number) => {
+  newProgress.value = progress;
 };
 
 const musicTimeData = ref<IMusicTimeData>({ duration: 0, currentTime: 0 });

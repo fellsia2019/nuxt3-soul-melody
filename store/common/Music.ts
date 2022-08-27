@@ -15,7 +15,6 @@ export const useMusicListStore = defineStore("musicList", {
       const res: Array<IMusicItem> = await $fetch(
         getRoute("mock", "music", {}, { type: type })
       );
-      console.log("res:", res);
       if (!res) return console.error("response is empty! LOAD_VACANCY_TAGS");
       this.musicList = res;
     },

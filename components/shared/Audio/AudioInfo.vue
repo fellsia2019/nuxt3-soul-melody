@@ -22,7 +22,7 @@ const props = defineProps<IAudioInfoProps>();
 .audio-info {
   display: grid;
   align-items: center;
-  grid-template-columns: 50px auto 180px 45px;
+  grid-template-columns: 50px auto 180px;
   gap: 20px;
 
   //   .audio-info__preview

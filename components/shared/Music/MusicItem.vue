@@ -37,6 +37,7 @@ interface IMusicItemProps {
   musicData: IMusicItem;
   isActiveIdMusic: number | null;
   playingStatus: boolean;
+  newProgress: number | null;
 }
 
 interface IMusicItemEmits {
@@ -109,7 +110,6 @@ const stopAudio = () => {
 
 const onTimeUpdate = () => {
   if (!audioRef.value) return;
-  console.log("time:", formatedTime(audioRef.value.currentTime));
   currentTime.value = audioRef.value.currentTime;
   onEmitMusicTimeData();
 };
@@ -120,6 +120,13 @@ const onEnded = () => {
   onEmitMusicTimeData();
   onEmitPause();
   emit("goToNextTrack");
+};
+
+// перемотка
+// инициализируется при клике по прогрессбару
+const onSetNewProgress = () => {
+  if (typeof props.newProgress !== "number" || !audioRef.value) return;
+  audioRef.value.currentTime = props.newProgress;
 };
 
 onMounted(() => {
@@ -137,6 +144,14 @@ onBeforeUnmount(() => {
   audioRef.value.removeEventListener("ended", onEnded);
   audioRef.value.removeEventListener("loadeddata", setDuration);
 });
+
+// change progress
+watch(
+  () => props.newProgress,
+  () => {
+    onSetNewProgress();
+  }
+);
 
 // play / pause
 watch(
@@ -194,6 +209,7 @@ watch(
     grid-template-columns: 40px auto 180px 50px;
     gap: 25px;
     align-items: center;
+    padding: 5px;
   }
 
   // .music-item__audio

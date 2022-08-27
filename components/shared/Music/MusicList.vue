@@ -7,6 +7,7 @@
       :musicData="music"
       :isActiveIdMusic="isActiveIdMusic"
       :playingStatus="playingStatus"
+      :newProgress="newProgress"
       @setActiveMusicId="setActiveMusicId"
       @setPlayStatus="setPlayStatus"
       @goToNextTrack="goToNextTrack"
@@ -23,6 +24,7 @@ interface IMusicListProps {
   musicList: Array<IMusicItem>;
   playingStatus: boolean;
   isActiveIdMusic: number;
+  newProgress: number | null;
 }
 
 interface IMusicListEmits {
@@ -58,7 +60,7 @@ const onUpdateMusicTimeData = (data: IMusicTimeData) => {
   // .music-list__music-item
   &__music-item {
     &:not(:last-child) {
-      margin-bottom: 20px;
+      margin-bottom: 3px;
     }
   }
 }

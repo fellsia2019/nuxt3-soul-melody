@@ -1,26 +1,43 @@
 <template>
   <aside class="aside-menu">
-    <Logo class="aside-menu__logo" />
-    <nav class="aside-menu__nav">
-      <ul class="aside-menu__navigation-list">
-        <li
-          class="aside-menu__navigation-item"
-          v-for="(item, index) in navigationList"
-          :key="`aside-menu__navigation-item-${item.url}`"
-        >
-          <nuxt-link
-            class="aside-menu__navigation-link color-light"
-            :to="{ name: 'music-slug', params: { slug: item.url } }"
-            >{{ counterHelper(index) }}\ {{ item.title }}</nuxt-link
+    <div class="aside-menu__inner">
+      <Logo class="aside-menu__logo" />
+      <nav class="aside-menu__nav">
+        <ul class="aside-menu__navigation-list">
+          <li
+            class="aside-menu__navigation-item"
+            v-for="(item, index) in navigationList"
+            :key="`aside-menu__navigation-item-${item.url}`"
           >
-        </li>
-      </ul>
-    </nav>
+            <nuxt-link
+              class="aside-menu__navigation-link color-light"
+              :to="{ name: 'music-slug', params: { slug: item.url } }"
+              >{{ counterHelper(index) }}\ {{ item.title }}</nuxt-link
+            >
+          </li>
+        </ul>
+      </nav>
+      <ToggleButton
+        class="aside-menu__toggle-button"
+        :class="{ 'aside-menu__toggle-button--invert-rotate': !isFullVision }"
+        @click="toogleAsideMenu()"
+      />
+    </div>
   </aside>
 </template>
 
 <script lang="ts" setup>
 import { counterHelper } from "@/helpers/counterHelper";
+
+interface IAsideMenuProps {
+  isFullVision: boolean;
+}
+interface IAsideMenuEmits {
+  (e: "toogleAsideMenu"): void;
+}
+
+const props = defineProps<IAsideMenuProps>();
+const emit = defineEmits<IAsideMenuEmits>();
 
 const navigationList: Array<{
   title: string;
@@ -43,12 +60,21 @@ const navigationList: Array<{
     url: "guitar",
   },
 ];
+
+const toogleAsideMenu = () => {
+  emit("toogleAsideMenu");
+};
 </script>
 
 <style lang="scss">
 .aside-menu {
-  background-image: $gradient-secondary;
-  padding: 40px 20px;
+  // .aside-menu__inner
+  padding-right: 20px;
+  &__inner {
+    background-image: $gradient-secondary;
+    padding: 40px 20px 40px 20px;
+    height: 100%;
+  }
 
   // .aside-menu__logo
   &__logo {
@@ -75,6 +101,20 @@ const navigationList: Array<{
     }
     &:active {
       color: $color-light;
+    }
+  }
+
+  // .aside-menu__toggle-button
+  &__toggle-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+
+    // .aside-menu__toggle-button--invert-rotate
+    &--invert-rotate {
+      transform: translate(0, -50%) rotate(180deg);
     }
   }
 }
