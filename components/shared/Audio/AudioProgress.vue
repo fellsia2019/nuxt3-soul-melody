@@ -32,7 +32,6 @@ const setProgress = (e: MouseEvent) => {
   const res =
     (((e.clientX * 100) / window.innerWidth) * props.musicTimeData.duration) /
     100;
-  console.log("res:", res);
   emit("setProgress", res);
 };
 </script>

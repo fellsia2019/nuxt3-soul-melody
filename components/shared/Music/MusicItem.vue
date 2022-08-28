@@ -79,17 +79,6 @@ const onEmitPause = () => {
   emit("setActiveMusicId", props.musicData.id);
 };
 
-// const onControll = () => {
-//   if (!isPlaying) {
-//     console.log("pause");
-//     // onEmitPause();
-//   }
-//   if (isPlaying) {
-//     console.log("play");
-//     // onEmitPlay();
-//   }
-// };
-
 const onEmitMusicTimeData = () => {
   emit("onUpdateMusicTimeData", {
     duration: audioRef.value?.duration || 0,
@@ -140,12 +129,23 @@ const onSetNewProgress = () => {
   audioRef.value.currentTime = props.newProgress;
 };
 
+// для pause/play не через кнопки управления UI
+// например, для контролеров с клавиатуры
+const onSetStatusFromOutside = () => {
+  if (!audioRef.value) return;
+
+  if (audioRef.value.paused && isPlaying.value) onEmitPause();
+  if (!audioRef.value.paused && !isPlaying.value) onEmitPlay();
+};
+
 onMounted(() => {
   setTimeout(() => {
     if (!audioRef.value) return;
     audioRef.value.addEventListener("timeupdate", onTimeUpdate);
     audioRef.value.addEventListener("ended", onEnded);
     audioRef.value.addEventListener("loadeddata", setDuration);
+    audioRef.value.addEventListener("pause", onSetStatusFromOutside);
+    audioRef.value.addEventListener("play", onSetStatusFromOutside);
   });
 });
 
@@ -154,6 +154,8 @@ onBeforeUnmount(() => {
   audioRef.value.removeEventListener("timeupdate", onTimeUpdate);
   audioRef.value.removeEventListener("ended", onEnded);
   audioRef.value.removeEventListener("loadeddata", setDuration);
+  audioRef.value.removeEventListener("pause", onSetStatusFromOutside);
+  audioRef.value.removeEventListener("play", onSetStatusFromOutside);
 });
 
 // change progress
