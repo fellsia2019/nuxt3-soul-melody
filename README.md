@@ -4,7 +4,7 @@
 
 ## Setup
 
-Node lts/stable 16.16.0
+Node lts/stable 16.17.0
 
 Make sure to install the dependencies:
 
