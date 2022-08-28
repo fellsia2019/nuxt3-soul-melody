@@ -11,9 +11,12 @@
   </section>
 </template>
 
+<script lang="ts" setup></script>
+
 <style lang="scss">
 .introdution {
   max-width: 900px;
+
   margin: 0 auto;
   // .introdution__title
   &__title {

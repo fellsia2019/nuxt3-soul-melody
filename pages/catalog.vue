@@ -14,25 +14,22 @@ const catalogList: Array<ICatalogCard> = [
   {
     title: "Pianino",
     route: "pianino",
-    image:
-      "https://ichef.bbci.co.uk/news/640/cpsprodpb/16FCC/production/_110865149_a8a1be04-493d-4aa4-bd9b-a393bc47d278.jpg",
+    image: "/img/catalog/pianino.jpg",
   },
   {
     title: "Koto",
     route: "koto",
-    image: "https://manabink.com/wp-content/uploads/2019/12/koto.jpg",
+    image: "/img/catalog/koto.jpg",
   },
   {
     title: "Violin",
     route: "violin",
-    image:
-      "https://zinginstruments.com/wp-content/uploads/2020/02/violin-on-top-of-sheet-music.png",
+    image: "/img/catalog/violin.jpg",
   },
   {
-    title: "Guitar",
-    route: "guitar",
-    image:
-      "https://yourguitarspace.files.wordpress.com/2022/06/img-ce-crop-left-strummed_acoustic_overview_02_in_session-9058e8f9f15f5811fb1428b67d591bfa-t402x.jpg",
+    title: "shamisen",
+    route: "shamisen",
+    image: "/img/catalog/shamisen.jpeg",
   },
 ];
 </script>
@@ -43,11 +40,11 @@ const catalogList: Array<ICatalogCard> = [
   &__title-block {
     margin-bottom: 80px;
     @media screen and (max-width: $breakpoint-desktop-md) {
-      margin-top: 60px;
+      margin-bottom: 60px;
     }
 
     @media screen and (max-width: $breakpoint-tablet-sm) {
-      margin-top: 40px;
+      margin-bottom: 40px;
     }
   }
 }

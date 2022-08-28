@@ -25,11 +25,26 @@ const props = defineProps<IAudioInfoProps>();
   grid-template-columns: 50px auto 180px;
   gap: 20px;
 
+  @media screen and (max-width: $breakpoint-tablet-sm) {
+    gap: 5px;
+  }
+  @media screen and (max-width: $breakpoint-mob) {
+    grid-template-columns: auto auto;
+  }
+
   //   .audio-info__preview
   &__preview {
     height: 100%;
     width: 100%;
     aspect-ratio: 40/40;
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    @media screen and (max-width: $breakpoint-mob) {
+      display: none;
+    }
   }
 
   // .audio-info__logo
@@ -38,6 +53,43 @@ const props = defineProps<IAudioInfoProps>();
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+
+  .audio-info__name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      -webkit-line-clamp: 1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+    @media screen and (max-width: $breakpoint-mob) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  // .audio-info__author
+  &__author {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      color: $color-secondary;
+    }
+    @media screen and (max-width: $breakpoint-mob) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
   }
 }
 </style>

@@ -29,6 +29,10 @@ const props = defineProps<ICatalogCardsProps>();
     display: flex;
     flex-wrap: wrap;
     margin: -15px;
+    @media screen and (max-width: $breakpoint-mob) {
+      display: block;
+      margin: 0;
+    }
   }
 
   // .catalog-cards__card
@@ -36,6 +40,13 @@ const props = defineProps<ICatalogCardsProps>();
     padding: 15px;
     max-width: 50%;
     width: 100%;
+    @media screen and (max-width: $breakpoint-mob) {
+      max-width: 100%;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
   }
 }
 </style>

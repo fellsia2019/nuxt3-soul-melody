@@ -1,24 +1,26 @@
 <template>
-  <button class="toogle-button">
-    <ArrowBackwardIcom />
+  <button class="toggle-button">
+    <ArrowBackwardIcom class="toggle-button__icon" />
   </button>
 </template>
 
 <style lang="scss">
-.toogle-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid $color-dark;
-  cursor: pointer;
-  transition: $transition-mod;
-  background-color: $color-thunder-sky;
+.toggle-button {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  &:hover {
-    background-color: $color-warning;
-    border-color: $color-warning;
+  cursor: pointer;
+  transition: $transition-mod-lazzy;
+  border: 1px solid $color-dark;
+  border-radius: 50%;
+  background-color: $color-thunder-sky;
+
+  // .toggle-button__icon
+  &__icon {
+    transform: rotate(-90deg);
   }
 }
 </style>

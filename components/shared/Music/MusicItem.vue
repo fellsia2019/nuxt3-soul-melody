@@ -79,6 +79,17 @@ const onEmitPause = () => {
   emit("setActiveMusicId", props.musicData.id);
 };
 
+// const onControll = () => {
+//   if (!isPlaying) {
+//     console.log("pause");
+//     // onEmitPause();
+//   }
+//   if (isPlaying) {
+//     console.log("play");
+//     // onEmitPlay();
+//   }
+// };
+
 const onEmitMusicTimeData = () => {
   emit("onUpdateMusicTimeData", {
     duration: audioRef.value?.duration || 0,
@@ -210,6 +221,10 @@ watch(
     gap: 25px;
     align-items: center;
     padding: 5px;
+
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      gap: 5px;
+    }
   }
 
   // .music-item__audio
@@ -221,12 +236,20 @@ watch(
   &__preview {
     position: relative;
 
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      position: unset;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
     &:hover {
-      .music-item__controll {
-        opacity: 1;
-      }
-      .music-item__logo {
-        filter: blur(1px);
+      @media screen and (min-width: ($breakpoint-tablet-sm+1)) {
+        .music-item__controll {
+          opacity: 1;
+        }
+        .music-item__logo {
+          filter: blur(1px);
+        }
       }
     }
   }
@@ -254,6 +277,51 @@ watch(
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      opacity: 0;
+    }
+  }
+
+  // .music-item__track
+  &__track {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      -webkit-line-clamp: 1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+  }
+
+  // .music-item__author
+  &__author {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 4;
+      color: $color-secondary;
+    }
+  }
+
+  // .music-item__time
+  &__time {
+    @media screen and (max-width: $breakpoint-tablet-sm) {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
   }
 }
 </style>

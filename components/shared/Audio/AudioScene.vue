@@ -71,6 +71,10 @@ const setProgress = (progress: number) => {
   gap: 20px;
   transition: $transition-mod;
 
+  @media screen and (max-width: $breakpoint-tablet-sm) {
+    grid-template-columns: 100px auto;
+  }
+
   // .audio-scene__audio-progress
   &__audio-progress {
     position: absolute;

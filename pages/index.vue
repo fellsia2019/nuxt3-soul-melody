@@ -13,7 +13,7 @@
   }
 
   @media screen and (max-width: $breakpoint-tablet-sm) {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 </style>
